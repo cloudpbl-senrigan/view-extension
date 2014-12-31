@@ -1,0 +1,28 @@
+{
+    "name": "Android map viewer",
+    "version": "1",
+    "manifest_version": 2,
+    "description": "Android map viewer of Cloud Kobo Production",
+    "icons":{
+        "16": "images/icon_16.png",
+        "48": "images/icon_48.png",
+        "128": "images/icon_128.png"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "background": {
+        "scripts": ["js/jquery-2.1.1.min.js", "js/background.js"]
+    },
+    "page_action": {
+        "default_icon": "images/icon_48.png",
+        "default_popup": "html/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://157.82.3.31:3000/"],
+            "js": ["js/jquery-2.1.1.min.js", "js/content.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
